@@ -1,0 +1,55 @@
+.coffee-menu-title {
+  color: #2f2926;
+  font-family: "PT Serif", serif;
+  font-size: 2.625rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+}
+
+.coffee {
+  display: flex;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.add-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background-color: #2f2926;
+  padding: 0;
+  margin: 0 1rem 0 0;
+  min-width: 32px;
+  height: 32px;
+}
+
+.coffee__content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.coffee__wrapper {
+  width: 100%;
+}
+
+.coffee__description {
+  color: #2f2926;
+  font-family: "Work Sans", sans-serif;
+  margin: 0;
+}
+
+.coffee__title {
+  max-width: 160px;
+  color: #2f2926;
+  font-family: "PT Serif", serif;
+  margin: 0;
+}
+.coffee__price {
+  min-width: 60px;
+  color: #2f2926;
+  font-family: "PT Serif", serif;
+  margin: 0;
+}

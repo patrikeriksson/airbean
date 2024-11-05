@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #f3e4e1;
+}
+
+main {
+  margin: 2rem 2rem 4rem;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  background-image: url("./assets/images/footerGraphic.svg");
+  height: 75px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
