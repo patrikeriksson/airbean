@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Coffee } from "../../types/Coffee";
+import { useDispatch } from "react-redux";
+import { Coffee } from "../../types/types";
 import { fetchCoffees } from "../../api/coffeeApi";
+import { addToCart } from "../../store/slices/cartSlice";
+import { AppDispatch } from "../../store/store";
 
 const CoffeeList: React.FC = () => {
   const [coffees, setCoffees] = useState<Coffee[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     const getCoffees = async () => {
@@ -19,13 +23,20 @@ const CoffeeList: React.FC = () => {
     getCoffees();
   }, []);
 
+  const handleAddToCart = (coffee: Coffee) => {
+    dispatch(addToCart({ coffee, quantity: 1 }));
+  };
+
   if (error) return <div>{error}</div>;
 
   return (
     <ul>
       {coffees.map((coffee) => (
         <li className="coffee" key={coffee.id}>
-          <button className="add-button">
+          <button
+            className="add-button"
+            onClick={() => handleAddToCart(coffee)}
+          >
             <svg
               width="16"
               height="16"

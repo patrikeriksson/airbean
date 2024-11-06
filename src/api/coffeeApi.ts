@@ -1,4 +1,4 @@
-import { CoffeeResponse } from "../types/Coffee";
+import { CoffeeResponse } from "../types/types";
 
 export const fetchCoffees = async (): Promise<CoffeeResponse> => {
   const response = await fetch(
