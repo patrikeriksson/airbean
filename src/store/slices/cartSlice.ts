@@ -24,9 +24,25 @@ const cartSlice = createSlice({
         state.items.push({ coffee, quantity });
       }
     },
+    removeFromCart: (state, action: PayloadAction<{ coffee: Coffee }>) => {
+      const { coffee } = action.payload;
+      const existingItem = state.items.find(
+        (item) => item.coffee.id === coffee.id
+      );
+
+      if (existingItem) {
+        if (existingItem.quantity > 1) {
+          existingItem.quantity -= 1;
+        } else {
+          state.items = state.items.filter(
+            (item) => item.coffee.id !== coffee.id
+          );
+        }
+      }
+    },
   },
 });
 
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, removeFromCart } = cartSlice.actions;
 
 export default cartSlice.reducer;

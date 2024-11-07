@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../store/store";
 import { CartItem } from "../../types/types";
-import { addToCart } from "../../store/slices/cartSlice";
+import { addToCart, removeFromCart } from "../../store/slices/cartSlice";
 import { motion } from "framer-motion";
 
 const cartVariants = {
@@ -32,8 +32,12 @@ export default function Cart() {
     0
   );
 
-  const handleAddOneMore = (item: CartItem) => {
+  const handleAddOne = (item: CartItem) => {
     dispatch(addToCart({ coffee: item.coffee, quantity: 1 }));
+  };
+
+  const handleRemoveOne = (item: CartItem) => {
+    dispatch(removeFromCart({ coffee: item.coffee }));
   };
 
   return (
@@ -54,20 +58,22 @@ export default function Cart() {
               <li key={item.coffee.id} className="cart__item">
                 <div className="cart__item-info">
                   <h3 className="cart__item-title">{item.coffee.title}</h3>
-                  <p className="cart__item-quantity">
-                    {item.quantity} x {item.coffee.price} kr
-                  </p>
+                  <p className="cart__price">{item.coffee.price} kr</p>
                 </div>
                 <div className="cart__item-actions">
                   <button
-                    className="cart__add-more"
-                    onClick={() => handleAddOneMore(item)}
+                    className="cart__quantity-button"
+                    onClick={() => handleRemoveOne(item)}
                   >
-                    +1
+                    -
                   </button>
-                  <p className="cart__price">
-                    {item.quantity * item.coffee.price} kr
-                  </p>
+                  <p className="cart__item-quantity">{item.quantity}</p>
+                  <button
+                    className="cart__quantity-button"
+                    onClick={() => handleAddOne(item)}
+                  >
+                    +
+                  </button>
                 </div>
               </li>
             ))}

@@ -61,11 +61,12 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   position: absolute;
   top: 0;
   right: 0;
   z-index: 2;
+  padding: 3rem 0 2rem;
 }
 
 .cart__title {
@@ -81,6 +82,9 @@ a {
 }
 
 .cart__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 1rem;
 }
 
@@ -131,4 +135,26 @@ a {
   color: #2f2926;
   font-family: "PT Serif", serif;
   margin: 0;
+}
+
+.cart__item-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart__item-quantity {
+  margin: 0 1rem;
+  font-family: "Work Sans", sans-serif;
+}
+
+.cart__quantity-button {
+  border: none;
+  border-radius: 50%;
+  background-color: #2f2926;
+  color: #ffffff;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  font-family: "Work Sans", sans-serif;
 }
